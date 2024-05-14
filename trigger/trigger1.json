@@ -1,0 +1,25 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "lending-club",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/source/blobs/",
+			"blobPathEndsWith": "lending_raw_data.csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/e8eb5803-fa98-4e75-b116-7ef1af96d086/resourceGroups/data_rg/providers/Microsoft.Storage/storageAccounts/adlsgendatalake",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
