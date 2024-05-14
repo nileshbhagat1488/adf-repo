@@ -1,0 +1,9 @@
+{
+	"name": "sales-adf-e2n",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b33f6db5-7823-4ed9-be92-81f76c64a0d3",
+		"tenantId": "d3eef4bb-02a7-4a84-8785-f830d51d938a"
+	}
+}

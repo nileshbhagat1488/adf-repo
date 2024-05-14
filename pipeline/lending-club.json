@@ -1,0 +1,57 @@
+{
+	"name": "lending-club",
+	"properties": {
+		"activities": [
+			{
+				"name": "Bronze layer",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/nileshbhagat1488@gmail.com/lending-data/Bronze/bronze-layer"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1_ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "bronze-silver-part1",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Bronze layer",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/nileshbhagat1488@gmail.com/lending-data/bronze-to-silver-part1"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1_ls",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-05-14T11:54:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
